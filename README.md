@@ -44,7 +44,7 @@ In order to run this application locally from sources, execute:
 
     ./gradlew bootRun
 
-Afterwards, the web interface is be availabe under http://localhost:8080.
+Afterwards, the web interface is available under http://localhost:8080.
 
 # Configuration
 
@@ -74,7 +74,7 @@ fakesmtp:
   #List of recipient addresses which should be blocked/rejected
   blockedRecipientAddresses:
     - blocked@example.com
-    - foo@eample.com
+    - foo@example.com
 
   #List of sender email addresses to ignore, as a comma-separated list of regex expressions.
   filteredEmailRegexList: john@doe\\.com,.*@google\\.com ; empty by default
@@ -128,10 +128,10 @@ Documentation of exposed services is available at:
     
     localhost:8080/swagger-ui.html
 
-## Developpment Environment
+## Development Environment
 
 This requires to have docker installed.
-If you need to implement a new feature, you will probably need an correct JDK version setup in an environement.
+If you need to implement a new feature, you will probably need a correct JDK version setup in an environment.
 
 ```sh
 sh/dev
