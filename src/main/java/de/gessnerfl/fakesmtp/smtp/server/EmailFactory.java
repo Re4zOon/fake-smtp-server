@@ -1,6 +1,5 @@
 package de.gessnerfl.fakesmtp.smtp.server;
 
-import com.sun.mail.util.BASE64DecoderStream;
 import de.gessnerfl.fakesmtp.model.*;
 import de.gessnerfl.fakesmtp.util.TimestampProvider;
 import org.apache.commons.io.IOUtils;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.mail.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
@@ -135,11 +135,11 @@ public class EmailFactory {
     }
 
     private Optional<String> getMessageContentAsString(Object rawContent) {
-        var content = rawContent instanceof BASE64DecoderStream stream ? readBase64EncodedData(stream) : Objects.toString(rawContent, null);
+        var content = rawContent instanceof InputStream stream ? readBase64EncodedData(stream) : Objects.toString(rawContent, null);
         return Optional.ofNullable(content);
     }
 
-    private String readBase64EncodedData(BASE64DecoderStream stream){
+    private String readBase64EncodedData(InputStream stream){
         try {
             var byteArray = IOUtils.toByteArray(stream);
             return Base64.getEncoder().encodeToString(byteArray);

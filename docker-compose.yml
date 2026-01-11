@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   fake-smtp-server:
-    image: gessnerfl/fake-smtp-server:2.1.0
+    image: gessnerfl/fake-smtp-server:latest
     hostname: "fake-smtp-server"
     restart: always
     ports:
